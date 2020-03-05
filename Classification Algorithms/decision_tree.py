@@ -53,10 +53,5 @@ Y2 = tree.predict(X_test)
 print(accuracy_score(Y_train, Y1)) #1.0
 print(accuracy_score(Y_test, Y2)) #0.7912087912087912
 
-''' 
-tree=BaseDecisionTree()
-tree = tree.fit(x, y)
-y1 = tree.predict(x)
-print(accuracy_score(y, y1))
-'''
+
 
