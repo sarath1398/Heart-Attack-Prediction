@@ -5,44 +5,30 @@ from sklearn.neighbors import NearestCentroid
 from sklearn.neighbors import NearestNeighbors
 from sklearn.neighbors import RadiusNeighborsTransformer
 from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
-from sklearn.metrics import confusion_matrix
 
-fitdata = pd.read_excel(r"C:\Users\Sarath\Desktop\DS Hackathon\Files\UCI Repository\fitdata.xlsx")
-predictdata = pd.read_excel(r"C:\Users\Sarath\Desktop\DS Hackathon\Files\UCI Repository\predictiondata.xlsx")
-fitdata= np.asarray(fitdata)
-predictdata=np.asarray(predictdata)
-X = fitdata[:, 0:13]
-Y = fitdata[:, 13]
-x = predictdata[:, 0:13]
-y = predictdata[:, 13]
-scaler=MinMaxScaler(feature_range=(0,1))
-X=scaler.fit_transform(X)
-x = scaler.fit_transform(x)
+alldata = pd.read_csv(r'C:\Users\Sarath\Desktop\DS Hackathon\Files\UCI Repository\heart.csv')
+alldata = np.asarray(alldata)
+X = alldata[:, 0:13]
+y = alldata[:, 13:]
+scaler = MinMaxScaler()
+X = scaler.fit_transform(X)
 np.set_printoptions(precision=3)
 
-tree = RadiusNeighborsClassifier(radius=30)
-tree = tree.fit(X, Y)
-Y1 = tree.predict(X)
-Y2=tree.predict(x)
-print(accuracy_score(Y, Y1))  #77.2%
-print(accuracy_score(y,Y2))
+X_train, X_test, Y_train, Y_test = train_test_split(X, y, test_size=0.3, random_state=4)
 
+tree = RadiusNeighborsClassifier(radius=100) #Radius is not yet hypertuned
+tree = tree.fit(X_train, Y_train)
+Y1 = tree.predict(X_train)
+Y2 = tree.predict(X_test)
+print(accuracy_score(Y_train, Y1)) #0.5283018867924528
+print(accuracy_score(Y_test, Y2)) #0.5824175824175825 
 
 tree = NearestCentroid()
-tree = tree.fit(X, Y)
-Y1 = tree.predict(X)
-Y2 = tree.predict(x)
-print(accuracy_score(Y, Y1)) #78.8%
-print(accuracy_score(y, Y2))
-'''
-tree = NearestNeighbors()
-tree = tree.fit(x, y)
-y1 = tree.predict(x)
-print(accuracy_score(y, y1))  
+tree = tree.fit(X_train, Y_train)
+Y1 = tree.predict(X_train) 
+Y2 = tree.predict(X_test)
+print(accuracy_score(Y_train, Y1)) #0.7924528301886793
+print(accuracy_score(Y_test, Y2)) #0.7912087912087912
 
-tree = RadiusNeighborsTransformer()
-tree = tree.fit(x, y)
-y1 = tree.predict(x)
-print(accuracy_score(y, y1))  
-'''
