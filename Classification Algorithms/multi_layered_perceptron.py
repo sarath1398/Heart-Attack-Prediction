@@ -24,3 +24,4 @@ Y2 = tree.predict(X_test)
 print(accuracy_score(Y_train, Y1)) #0.8301886792452831 (Changes in the range of 80 and 85)
 print(accuracy_score(Y_test, Y2)) #0.8351648351648352
 
+
