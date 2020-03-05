@@ -1,1 +1,1 @@
-This folder is all about classifications algorithms implemented for heart disease dataset. This dataset is available in UCI Repository and Kaggle. Thank you!
+This folder is all about classifications algorithms implemented for heart disease dataset. This dataset is available in UCI Repository and Kaggle. Thank you! 
