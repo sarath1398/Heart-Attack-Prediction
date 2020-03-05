@@ -28,7 +28,7 @@ classifier=classifier.fit(X_train,Y_train)
 train_acc=classifier.predict(X_train)
 test_acc=classifier.predict(X_test)
 print(accuracy_score(Y_train, train_acc)) #0.8584905660377359
-print(accuracy_score(Y_test, test_acc)) #0.8461538461538461
+print(accuracy_score(Y_test, test_acc)) #0.8461538461538461 
 
 
 
