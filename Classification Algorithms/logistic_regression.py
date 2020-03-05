@@ -19,6 +19,6 @@ log = LogisticRegression()
 log = log.fit(X_train, Y_train)
 Y1 = log.predict(X_train)
 Y2 = log.predict(X_test)
-print(accuracy_score(Y_train, Y1))
-print(accuracy_score(Y_test, Y2))
+print(accuracy_score(Y_train, Y1)) #0.8443396226415094
+print(accuracy_score(Y_test, Y2)) #0.8351648351648352
 
