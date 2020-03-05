@@ -22,46 +22,24 @@ np.set_printoptions(precision=3)
 
 X_train, X_test, Y_train, Y_test = train_test_split(X, y, test_size=0.3, random_state=2)
 
-tree = SVC()
-tree = tree.fit(X_train, Y_train)
-Y1 = tree.predict(X_train) 
-Y2 = tree.predict(X_test)
+obj = SVC()
+obj = obj.fit(X_train, Y_train)
+Y1 = obj.predict(X_train) 
+Y2 = obj.predict(X_test)
 print(accuracy_score(Y_train, Y1)) #0.8820754716981132
 print(accuracy_score(Y_test, Y2)) #0.8901098901098901
-'''
-tree = SVR()
-tree = tree.fit(x, y)
-y1 = tree.predict(x)
-print(accuracy_score(y, y1))
-'''
-tree = NuSVC()
-tree = tree.fit(X_train, Y_train)
-Y1 = tree.predict(X_train)
-Y2 = tree.predict(X_test)
+
+obj = NuSVC()
+obj = obj.fit(X_train, Y_train)
+Y1 = obj.predict(X_train)
+Y2 = obj.predict(X_test)
 print(accuracy_score(Y_train, Y1)) #0.8820754716981132
 print(accuracy_score(Y_test, Y2)) #0.8901098901098901
-'''
-tree = NuSVR()
-tree = tree.fit(x, y)
-y1 = tree.predict(x)
-print(accuracy_score(y, y1))
-'''
-tree = LinearSVC()
-tree = tree.fit(X_train, Y_train)
-Y1 = tree.predict(X_train)
-Y2 = tree.predict(X_test)
+
+obj = LinearSVC()
+obj = obj.fit(X_train, Y_train)
+Y1 = obj.predict(X_train)
+Y2 = obj.predict(X_test)
 print(accuracy_score(Y_train, Y1)) #0.8443396226415094
 print(accuracy_score(Y_test, Y2)) #0.8681318681318682
-'''
-tree = LinearSVR()
-tree = tree.fit(x, y)
-y1 = tree.predict(x)
-print(accuracy_score(y, y1))
 
-tree = OneClassSVM()
-tree = tree.fit(X_train, Y_train)
-Y1 = tree.predict(X_train)
-Y2 = tree.predict(X_test)
-print(accuracy_score(Y_train, Y1))
-print(accuracy_score(Y_test, Y2))
-'''
