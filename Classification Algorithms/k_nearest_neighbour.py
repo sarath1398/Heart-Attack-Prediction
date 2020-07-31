@@ -16,14 +16,7 @@ scaler = MinMaxScaler()
 X = scaler.fit_transform(X)
 np.set_printoptions(precision=3)
 
-X_train, X_test, Y_train, Y_test = train_test_split(X, y, test_size=0.3, random_state=4)
-
-tree = RadiusNeighborsClassifier(radius=100) #Radius is not yet hypertuned
-tree = tree.fit(X_train, Y_train)
-Y1 = tree.predict(X_train)
-Y2 = tree.predict(X_test)
-print(accuracy_score(Y_train, Y1)) #0.5283018867924528
-print(accuracy_score(Y_test, Y2)) #0.5824175824175825 
+X_train, X_test, Y_train, Y_test = train_test_split(X, y, test_size=0.3, random_state=4) 
 
 tree = NearestCentroid()
 tree = tree.fit(X_train, Y_train)
